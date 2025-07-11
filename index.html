@@ -4,57 +4,126 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <header
-      class="flex h-[8vh] items-center justify-center bg-gradient-to-r from-blue-800 to-indigo-900 text-xl font-bold sm:text-2xl lg:h-[10vh]"
+    <div
+      id="modal"
+      class="hidden rounded-2xl fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-blue-800 to-indigo-900 text-white z-100 lg:w-[50%] w-[80%] lg:h-[50%] h-[30%] flex justify-center items-center text-sm lg:text-2xl font-bold"
     >
-      <div
-        class="flex items-center justify-center rounded-4xl bg-amber-50 p-3 shadow-2xl"
-      >
-        🧸<i><h1>Gooning Game</h1></i>🧸
+      <div class="absolute top-0 w-[100%] flex justify-end items-center p-2 bg-[#000] rounded-t-xl">
+        <button id="closeModal">❌</button>
       </div>
-    </header>
-    <main class="flex h-[89vh] flex-col lg:h-[90vh] lg:flex-row bg-slate-50">
-      <div
-        class="b z-10 flex h-[110vh] w-[100%] items-center justify-center lg:h-[89.5vh] lg:w-[75%]"
+      <p class="lg:w-[100%] w-[85%] flex justify-center">Invalid Operation. You have reached the border of the grid.</p>
+    </div>
+    <div id="screen">
+      <header
+        class="flex h-[8vh] items-center justify-center bg-gradient-to-r from-blue-800 to-indigo-900 text-xl font-bold sm:text-2xl lg:h-[10vh]"
       >
         <div
-          id="canvas"
-          class="z-10 grid h-[50%] w-[80%] grid-cols-4 rounded-3xl bg-white px-5 shadow-2xl lg:h-[65%] lg:w-[50%] lg:py-1"
+          class="flex items-center justify-center rounded-4xl bg-amber-50 p-3 shadow-2xl"
+          id="panda"
         >
-          <div class="border-black-400 m-1 rounded-2xl border-2 p-3">H1</div>
-          <div class="border-black-400 m-1 rounded-2xl border-2 p-3">h9</div>
-          <div class="border-black-400 m-1 rounded-2xl border-2 p-3">h9</div>
-          <div class="border-black-400 m-1 rounded-2xl border-2 p-3">h9</div>
-          <div class="border-black-400 m-1 rounded-2xl border-2 p-3">h9</div>
-          <div class="border-black-400 m-1 rounded-2xl border-2 p-3">h9</div>
-          <div class="border-black-400 m-1 rounded-2xl border-2 p-3">h9</div>
-          <div class="border-black-400 m-1 rounded-2xl border-2 p-3">h9</div>
-          <div class="border-black-400 m-1 rounded-2xl border-2 p-3">H1</div>
-          <div class="border-black-400 m-1 rounded-2xl border-2 p-3">h9</div>
-          <div class="border-black-400 m-1 rounded-2xl border-2 p-3">h9</div>
-          <div class="border-black-400 m-1 rounded-2xl border-2 p-3">h9</div>
-          <div class="border-black-400 m-1 rounded-2xl border-2 p-3">h9</div>
-          <div class="border-black-400 m-1 rounded-2xl border-2 p-3">h9</div>
-          <div class="border-black-400 m-1 rounded-2xl border-2 p-3">h9</div>
-          <div class="border-black-400 m-1 rounded-2xl border-2 p-3">h9</div>
+          🧸<i><h1>Gooning Game</h1></i>🧸
         </div>
-      </div>
-      <div
-        class="z-10 flex h-[30vh] w-[100%] flex-col items-center justify-center gap-5 lg:h-[89.5vh] lg:w-[25%] border-2"
-      >
-        <div class="flex justify-center">
-          <div class="rounded-3xl bg-[#171717] px-10 py-3 text-white">A</div>
+      </header>
+      <main class="flex h-[89vh] flex-col lg:h-[90vh] lg:flex-row bg-slate-50">
+        <div
+          class="flex h-[110vh] w-[100%] items-center justify-center lg:h-[89.5vh] lg:w-[75%]"
+        >
+          <div
+            id="canvas"
+            class="grid h-[50%] w-[80%] grid-cols-4 rounded-3xl bg-white px-5 shadow-2xl lg:h-[65%] lg:w-[50%] lg:py-1"
+          >
+            <div
+              class="border-black-400 m-1 rounded-2xl border-2 p-3 cell player"
+            >
+              H1
+            </div>
+            <div class="border-black-400 m-1 rounded-2xl border-2 p-3 cell">
+              h9
+            </div>
+            <div class="border-black-400 m-1 rounded-2xl border-2 p-3 cell">
+              h9
+            </div>
+            <div class="border-black-400 m-1 rounded-2xl border-2 p-3 cell">
+              h9
+            </div>
+            <div class="border-black-400 m-1 rounded-2xl border-2 p-3 cell">
+              h9
+            </div>
+            <div class="border-black-400 m-1 rounded-2xl border-2 p-3 cell">
+              h9
+            </div>
+            <div class="border-black-400 m-1 rounded-2xl border-2 p-3 cell">
+              h9
+            </div>
+            <div class="border-black-400 m-1 rounded-2xl border-2 p-3 cell">
+              h9
+            </div>
+            <div class="border-black-400 m-1 rounded-2xl border-2 p-3 cell">
+              H1
+            </div>
+            <div class="border-black-400 m-1 rounded-2xl border-2 p-3 cell">
+              h9
+            </div>
+            <div class="border-black-400 m-1 rounded-2xl border-2 p-3 cell">
+              h9
+            </div>
+            <div class="border-black-400 m-1 rounded-2xl border-2 p-3 cell">
+              h9
+            </div>
+            <div class="border-black-400 m-1 rounded-2xl border-2 p-3 cell">
+              h9
+            </div>
+            <div class="border-black-400 m-1 rounded-2xl border-2 p-3 cell">
+              h9
+            </div>
+            <div class="border-black-400 m-1 rounded-2xl border-2 p-3 cell">
+              h9
+            </div>
+            <div class="border-black-400 m-1 rounded-2xl border-2 p-3 cell">
+              h9
+            </div>
+          </div>
         </div>
-        <div class="flex w-[60%] justify-between">
-          <div class="rounded-3xl bg-[#171717] px-10 py-3 text-white">B</div>
-          <div class="rounded-3xl bg-[#171717] px-10 py-3 text-white">C</div>
+        <div
+          class="z-10 flex h-[30vh] w-[100%] flex-col items-center justify-center gap-5 lg:h-[89.5vh] lg:w-[25%]"
+        >
+          <div class="flex justify-center">
+            <div
+              class="rounded-3xl bg-[#171717] px-10 py-3 text-white hover:bg-[#121212] moveBtn"
+              id="top1"
+            >
+              ⬆️
+            </div>
+          </div>
+          <div class="flex w-[60%] justify-between">
+            <div
+              class="rounded-3xl bg-[#171717] px-10 py-3 text-white moveBtn"
+              id="left"
+            >
+              ⬅️
+            </div>
+            <div
+              class="rounded-3xl bg-[#171717] px-10 py-3 text-white moveBtn"
+              id="right"
+            >
+              ➡️
+            </div>
+          </div>
+          <div class="flex justify-center">
+            <div
+              class="rounded-3xl bg-[#171717] px-10 py-3 text-white hover:bg-[#121212] moveBtn"
+              id="down"
+            >
+              ⬇️
+            </div>
+          </div>
         </div>
-        <div class="flex justify-center">
-          <div class="rounded-3xl bg-[#171717] px-10 py-3 text-white">C</div>
-        </div>
-      </div>
-    </main>
+      </main>
+    </div>
+    <script src="./index.js"></script>
   </body>
 </html>

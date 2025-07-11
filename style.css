@@ -1,0 +1,36 @@
+.player {
+  background-image: linear-gradient(to right, #1e40af, #312e81);
+  transition-timing-function: ease-out;
+  transition-duration: 250ms;
+}
+
+#closeModal {
+  transition-timing-function: ease-out;
+  transition-duration: 100ms;
+}
+
+.cell {
+  transition-timing-function: ease-out;
+  transition-duration: 200ms;
+}
+
+#closeModal:hover {
+  transform: scale(1.3);
+  cursor: pointer;
+  background-color: #373737;
+  border-radius: 2px;
+}
+
+#screen {
+  transition-timing-function: ease-out;
+  transition-duration: 150ms;
+}
+
+#panda {
+  transition-timing-function: ease-out;
+  transition-duration: 150ms;
+}
+
+#panda:hover {
+    transform: scale(1.2);
+}
